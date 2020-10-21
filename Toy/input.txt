@@ -1,0 +1,57 @@
+ababababab
+aaaabbbbababa
+
+/* %{
+// define tokens
+public static final int _boolean = 1000;
+public static final int _break = 1002;
+public static final int _class = 1003;
+public static final int _double = 1004;
+public static final int _else = 1005
+_extends = 1006
+_for = 1007
+_if = 1008
+_implements = 1009
+_int = 1010
+_interface= = 1011
+_new = 1012
+_newarray = 1013
+_null = 1014
+_println = 1015
+_readln = 1016
+_return = 1017
+_string = 1018
+_this = 1019
+_void = 1020
+_while = 1021
+_plus = 1022
+_minus = 1023
+_multiplication = 1024
+_division = 1025
+_mod = 1026
+_less = 1027
+_lessequal = 1028
+_greater = 1029
+_greaterequal = 1030
+_equal = 1031
+_notequal = 1032
+_and = 1033
+_or = 1034
+_not = 1035
+_assignop = 1036
+_semicolon = 1037
+_comma = 1038
+_period = 1039
+_leftparen = 1040
+_rightparen = 1041
+_leftbracket = 1042
+_rightbracket = 1043
+_leftbrace = 1044
+_rightbrace = 1045
+_intconstant = 1046
+_doubleconstant = 1047
+_stringconstant = 1048
+_booleanconstant = 1049
+_id = 1050
+
+%}
