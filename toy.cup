@@ -1,0 +1,67 @@
+/* Simple +/-/* expression language; parser evaluates constant expressions on the fly*/
+package syntax;
+
+import lexer.*;
+import java.io.*;
+import java_cup.runtime.*;
+
+parser code {:
+    // Connect this parser to a scanner!
+    private Toy lexer;
+    private File file;
+    
+    public parser(File file) {
+    	this();
+    	this.file = file;
+    	
+    	try {
+			lexer = new Toy( new FileReader( file ) );
+			}
+		catch ( IOException exception ) {
+			throw new Error( "Unable to open file \"" + file + "\"" );
+			}			
+    	}
+:}
+
+/* define how to connect to the scanner! */
+//init with {: s.init(); :};
+scan with {: return lexer.next_token(); :};
+
+/* Terminals (tokens returned by the scanner). */
+terminal            BOOLEAN, BREAK, CLASS, DOUBLE, ELSE, EXTENDS, FOR, IF;
+terminal			IMPLEMENTS, INT, INTERFACE, NEW, NEWARRAY, NULL, PRINTLN;
+terminal			READLN, RETURN, STRING, THIS, VOID, WHILE, PLUS, MINUS;
+terminal			MULT, DIV, MOD, LESS, LESSEQ, GREATER, GREATEREQ, EQUAL;
+terminal			NOTEQ, AND, OR, NOT, ASSIGNOP, SEMICOL, COMMA, PERIOD;
+terminal			LEFTPAREN, RIGHTPAREN, LEFTBRACKET, RIGHTBRACKET;
+terminal			LEFTBRACE, RIGHTBRACE, INTCONST, DOUBLECONST;
+terminal			STRINGCONST, BOOLEANCONST, ID;
+
+/* Everything below I didn't use just kept it just in case */
+terminal TIMES, UMINUS, SEMI, LPAREN, RPAREN;
+terminal Integer    NUMBER;        // our scanner provides numbers as integers
+
+
+/* Non terminals */
+non terminal            expr_list;
+non terminal Integer    expr;      // used to store evaluated subexpressions
+
+/* Precedences */
+precedence left PLUS, MINUS;
+precedence left TIMES;
+precedence left UMINUS;
+
+/* The grammar rules */
+expr_list ::= expr_list expr:e SEMI         {: System.out.println(e);:}
+            | expr:e SEMI                   {: System.out.println(e);:}
+;
+expr      ::= expr:e1 PLUS  expr:e2         {: RESULT = e1+e2;       :}
+             | expr:e1 MINUS expr:e2        {: RESULT = e1-e2;       :}
+             | expr:e1 TIMES expr:e2        {: RESULT = e1*e2;       :}
+             | MINUS expr:e                 {: RESULT = -e;          :}
+  	     %prec UMINUS
+       | LPAREN expr:e RPAREN	         {: RESULT = e;           :}
+       | NUMBER:n	                     {: RESULT = n;           :}
+             ;
+             
+             
