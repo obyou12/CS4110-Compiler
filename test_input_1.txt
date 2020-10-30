@@ -1,0 +1,60 @@
+
+
+public class test_case_2 {
+    int grade; 
+    int studen_id; 
+    String name; 
+    
+
+    test_case_2()
+    {
+        this.grade = 0; 
+        this.studen_id = 0;
+        this.name = null; 
+    }
+    public int getGrade(){
+        return grade; 
+    }
+    public int getID()
+    {
+        return studen_id; 
+    }
+    public String getName(){
+        return name; 
+    }
+
+    public interface Calculator {
+        int add(int a, int b);
+        int subtract(int a, int b);
+        int product(int a, int b);
+        double divide(int a, int b);
+    }
+    public interface Scientific extends Calculator{
+        int square(int a);
+        int cube(int a);
+    }
+
+
+    public  void checkingGrade(int inputGrade)
+    {
+        if(inputGrade >= 5)
+            System.out.println("A");
+        if((5 > inputGrade) && (4 < inputGrade))
+            System.out.println("B");
+        if((4 > inputGrade) && (3 < inputGrade))
+            System.out.println("C");
+        if((3 > inputGrade) && (2 < inputGrade))
+            System.out.println("D");
+        if((2 > inputGrade) && ( 0 < inputGrade))
+            System.out.println("F");
+    }
+    public void id_Function(int id)
+    {   
+        if(id == -1)
+            System.out.println("Wrong Studen Id");
+        if(id != 0)
+            System.out.println("Wrong number");
+    }
+    
+
+}

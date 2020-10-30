@@ -1,0 +1,45 @@
+
+
+public class test_case{
+
+    int NUM_1 = 7;
+    double NUM_2 = 22030.2034; 
+    String  LETTER= "Done.";
+    boolean STATEMENT_IS_TRUE = true; 
+    public static void main(String[] args) {
+
+        boolean stop = false;
+        int counter  = 0; 
+        String random = null; 
+
+        //reading
+        object obj = new object();
+        random = obj.readLine(); 
+        
+        // print out numbers
+        while(!stop)
+        {
+            for(int i = 0; i < 100; ++i)
+            {
+                if((i % NUM_1) == 0)
+                {
+                    System.out.println("i: " + i);
+                }
+            }
+            
+            ++counter; 
+            if(counter == 200)
+            {
+                stop = true; 
+                break;
+            }
+            if(counter <= 200)
+                ++counter;
+            else
+                counter += counter;
+        }
+
+        System.out.println(LETTER);
+    }
+
+}
