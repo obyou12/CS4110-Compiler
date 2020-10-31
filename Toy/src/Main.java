@@ -3,31 +3,35 @@ import syntax.*;
 import java.io.*;
 
 public class Main {
-	public static void main( String[] args ) throws IOException{
-		// get the file for the lexer, if no inputed file, use the default one.
+	public static void main(String[] args) throws IOException{
+		File file = new File("input.txt"); // default file
+		FileReader reader;
+		
+		try {
+			file = new File(args[0]);
+			System.out.println("File: " + file + "\n");
+				reader = new FileReader(file);
+		} 
+		catch(IndexOutOfBoundsException e) {
+			System.out.println("No inputed file detected, using default file:\n" + file + "\n");
+			reader = new FileReader(file);
+		}
 				
-				File infile = new File("input.txt");
-				FileReader reader;
-				try {
-					infile = new File(args[0]);
-					System.out.println("Using file: " + infile + "\n");
-					reader = new FileReader(infile);
-				} catch(IndexOutOfBoundsException e) {
-					System.out.println("No inputed file detected, using default file:\n" + infile + "\n");
-					reader = new FileReader(infile);
-				}
+		parser p = new parser(file); // parses through input file
+		System.out.println("Parsing:");
+		
+		try {
+			p.parse();
+			System.out.println("\nSuccessful Parse");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("\nUnsuccessful Parse"); 
+		}
 				
-				parser p = new parser(infile);
-				System.out.println("********** Start of Syntax Analysis **********");
-				try {
-					p.parse();
-					System.out.println("[accept]");
-				} catch (Exception e) {
-					e.printStackTrace();
-					System.out.println("[reject]"); 
-				}
-				
-				System.out.println("\n********** End of syntax analysis **********");
-			}
+		System.out.println("-End of Parse");
+		
+		p.getToy().outputTrie(); // output Trie table
+	}		
 }
 
