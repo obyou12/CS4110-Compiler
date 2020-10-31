@@ -39,7 +39,7 @@ public class Toy implements java_cup.runtime.Scanner {
   private static final int [] ZZ_CMAP_TOP = zzUnpackcmap_top();
 
   private static final String ZZ_CMAP_TOP_PACKED_0 =
-    "\1\0\u10ff\u0100";
+    "\1\0\37\u0100\1\u0200\267\u0100\10\u0300\u1020\u0100";
 
   private static int [] zzUnpackcmap_top() {
     int [] result = new int[4352];
@@ -67,13 +67,19 @@ public class Toy implements java_cup.runtime.Scanner {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\2\1\25\0\1\1\17\0\12\2\1\0\1\3"+
-    "\1\0\1\4\3\0\32\5\4\0\1\2\1\0\1\6"+
-    "\1\7\2\5\1\10\6\5\1\11\1\5\1\12\1\13"+
-    "\13\5\1\14\1\0\1\15\u0182\0";
+    "\11\0\1\1\1\2\2\3\1\4\22\0\1\1\1\5"+
+    "\1\6\2\0\1\7\1\10\1\0\1\11\1\12\1\13"+
+    "\1\14\1\15\1\16\1\17\1\20\1\21\11\22\1\0"+
+    "\1\23\1\24\1\25\1\26\2\0\4\27\1\30\1\27"+
+    "\14\31\1\32\4\31\1\33\2\31\1\34\1\35\1\36"+
+    "\1\0\1\37\1\0\1\40\1\41\1\42\1\43\1\44"+
+    "\1\45\1\46\1\47\1\50\1\31\1\51\1\52\1\53"+
+    "\1\54\1\55\1\56\1\31\1\57\1\60\1\61\1\62"+
+    "\1\63\1\64\1\65\1\66\1\31\1\67\1\70\1\71"+
+    "\7\0\1\3\u01a2\0\2\3\326\0\u0100\3";
 
   private static int [] zzUnpackcmap_blocks() {
-    int [] result = new int[512];
+    int [] result = new int[1024];
     int offset = 0;
     offset = zzUnpackcmap_blocks(ZZ_CMAP_BLOCKS_PACKED_0, offset, result);
     return result;
@@ -97,11 +103,20 @@ public class Toy implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\2\4\1\5\1\6\5\4"+
-    "\1\7";
+    "\1\0\1\1\2\2\1\3\1\0\1\4\1\0\1\5"+
+    "\1\6\1\7\1\10\1\11\1\12\1\13\1\14\2\15"+
+    "\1\16\1\17\1\20\1\21\2\22\1\23\1\24\15\22"+
+    "\1\25\1\0\1\26\1\2\1\27\1\0\1\30\1\0"+
+    "\1\31\1\0\1\1\1\32\1\0\1\33\1\34\12\22"+
+    "\1\35\12\22\1\36\4\0\1\1\1\0\1\15\11\22"+
+    "\1\37\1\22\1\40\1\41\10\22\1\0\1\30\1\1"+
+    "\1\0\1\32\6\22\1\42\4\22\1\43\3\22\1\44"+
+    "\1\45\1\46\4\22\1\47\1\50\10\22\1\51\1\52"+
+    "\2\22\1\53\5\22\1\54\1\55\1\22\1\56\1\57"+
+    "\3\22\1\60\1\61\2\22\1\62\1\22\1\63\1\64";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[14];
+    int [] result = new int[167];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -126,11 +141,30 @@ public class Toy implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\16\0\34\0\34\0\52\0\70\0\34\0\34"+
-    "\0\106\0\124\0\142\0\160\0\176\0\52";
+    "\0\0\0\72\0\72\0\164\0\256\0\350\0\u0122\0\u015c"+
+    "\0\u0122\0\u0122\0\u0122\0\u0196\0\u0122\0\u0196\0\u0122\0\u01d0"+
+    "\0\u020a\0\u0244\0\u0122\0\u027e\0\u0122\0\u02b8\0\u02f2\0\u032c"+
+    "\0\u0122\0\u0122\0\u0366\0\u03a0\0\u03da\0\u0414\0\u044e\0\u0488"+
+    "\0\u04c2\0\u04fc\0\u0536\0\u0570\0\u05aa\0\u05e4\0\u061e\0\u0122"+
+    "\0\u0658\0\u0122\0\u0122\0\u0122\0\u0692\0\u0122\0\u06cc\0\u0122"+
+    "\0\u0706\0\u0740\0\u077a\0\u07b4\0\u0122\0\u0122\0\u07ee\0\u0828"+
+    "\0\u0862\0\u089c\0\u08d6\0\u0910\0\u094a\0\u0984\0\u09be\0\u09f8"+
+    "\0\u02f2\0\u0a32\0\u0a6c\0\u0aa6\0\u0ae0\0\u0b1a\0\u0b54\0\u0b8e"+
+    "\0\u0bc8\0\u0c02\0\u0c3c\0\u0122\0\u0c76\0\u0cb0\0\u0cea\0\u0d24"+
+    "\0\u0122\0\u0d5e\0\u07b4\0\u0d98\0\u0dd2\0\u0e0c\0\u0e46\0\u0e80"+
+    "\0\u0eba\0\u0ef4\0\u0f2e\0\u0f68\0\u02f2\0\u0fa2\0\u0fdc\0\u1016"+
+    "\0\u1050\0\u108a\0\u10c4\0\u10fe\0\u1138\0\u1172\0\u11ac\0\u11e6"+
+    "\0\u1220\0\u0692\0\u125a\0\u1294\0\u1294\0\u12ce\0\u1308\0\u1342"+
+    "\0\u137c\0\u13b6\0\u13f0\0\u02f2\0\u142a\0\u1464\0\u149e\0\u14d8"+
+    "\0\u02f2\0\u1512\0\u154c\0\u1586\0\u02f2\0\u02f2\0\u02f2\0\u15c0"+
+    "\0\u15fa\0\u1634\0\u166e\0\u02f2\0\u02f2\0\u16a8\0\u16e2\0\u171c"+
+    "\0\u1756\0\u1790\0\u17ca\0\u1804\0\u183e\0\u02f2\0\u02f2\0\u1878"+
+    "\0\u18b2\0\u02f2\0\u18ec\0\u1926\0\u1960\0\u199a\0\u19d4\0\u02f2"+
+    "\0\u02f2\0\u1a0e\0\u02f2\0\u02f2\0\u1a48\0\u1a82\0\u1abc\0\u02f2"+
+    "\0\u02f2\0\u1af6\0\u1b30\0\u02f2\0\u1b6a\0\u02f2\0\u02f2";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[14];
+    int [] result = new int[167];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -153,16 +187,125 @@ public class Toy implements java_cup.runtime.Scanner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\0\1\2\1\0\1\3\1\4\2\5\1\6\4\5"+
-    "\1\7\1\10\1\0\1\2\34\0\1\5\2\0\7\5"+
-    "\4\0\1\5\2\0\6\5\1\11\4\0\1\5\2\0"+
-    "\6\5\1\12\4\0\1\5\2\0\4\5\1\13\2\5"+
-    "\4\0\1\5\2\0\3\5\1\14\3\5\4\0\1\5"+
-    "\2\0\1\5\1\15\5\5\4\0\1\5\2\0\5\5"+
-    "\1\16\1\5\2\0";
+    "\1\0\1\2\1\3\1\0\1\4\1\5\1\6\1\7"+
+    "\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17"+
+    "\1\20\1\21\1\22\1\23\1\24\1\25\1\26\3\27"+
+    "\1\30\1\27\1\31\1\0\1\32\1\0\1\33\1\34"+
+    "\1\35\1\36\1\37\1\40\2\27\1\41\3\27\1\42"+
+    "\1\27\1\43\1\44\1\27\1\45\1\27\1\46\1\47"+
+    "\2\27\1\50\1\51\1\52\1\0\2\2\71\0\1\53"+
+    "\114\0\1\54\44\0\2\6\1\55\3\6\1\56\26\6"+
+    "\1\57\34\6\102\0\1\60\102\0\1\21\1\22\62\0"+
+    "\1\61\4\0\1\62\70\0\1\63\1\0\2\22\10\0"+
+    "\1\64\31\0\1\64\23\0\1\63\1\0\2\22\74\0"+
+    "\1\65\71\0\1\66\65\0\2\27\4\0\5\27\3\0"+
+    "\30\27\24\0\2\27\4\0\5\27\3\0\22\27\1\67"+
+    "\5\27\24\0\2\27\4\0\5\27\3\0\21\27\1\70"+
+    "\6\27\24\0\2\27\4\0\5\27\3\0\16\27\1\71"+
+    "\1\27\1\72\7\27\24\0\2\27\4\0\5\27\3\0"+
+    "\13\27\1\73\14\27\24\0\2\27\4\0\5\27\3\0"+
+    "\16\27\1\74\11\27\24\0\2\27\4\0\5\27\3\0"+
+    "\13\27\1\75\12\27\1\76\1\27\24\0\2\27\4\0"+
+    "\5\27\3\0\1\27\1\77\14\27\1\100\11\27\24\0"+
+    "\2\27\4\0\5\27\3\0\6\27\1\101\5\27\1\102"+
+    "\1\103\12\27\24\0\2\27\4\0\5\27\3\0\5\27"+
+    "\1\104\15\27\1\105\4\27\24\0\2\27\4\0\5\27"+
+    "\3\0\20\27\1\106\7\27\24\0\2\27\4\0\5\27"+
+    "\3\0\5\27\1\107\22\27\24\0\2\27\4\0\5\27"+
+    "\3\0\10\27\1\110\7\27\1\111\7\27\24\0\2\27"+
+    "\4\0\5\27\3\0\16\27\1\112\11\27\24\0\2\27"+
+    "\4\0\5\27\3\0\10\27\1\113\17\27\73\0\1\114"+
+    "\1\0\6\55\1\56\26\55\1\115\34\55\2\116\1\0"+
+    "\3\116\1\56\26\116\1\117\34\116\13\61\1\120\56\61"+
+    "\2\62\1\121\1\0\1\121\65\62\21\0\2\63\5\0"+
+    "\1\122\13\0\1\122\46\0\2\123\4\0\2\123\7\0"+
+    "\6\123\45\0\2\27\4\0\5\27\3\0\20\27\1\124"+
+    "\7\27\24\0\2\27\4\0\5\27\3\0\21\27\1\125"+
+    "\6\27\24\0\2\27\4\0\5\27\3\0\16\27\1\126"+
+    "\11\27\24\0\2\27\4\0\5\27\3\0\5\27\1\127"+
+    "\22\27\24\0\2\27\4\0\5\27\3\0\1\27\1\130"+
+    "\26\27\24\0\2\27\4\0\5\27\3\0\23\27\1\131"+
+    "\4\27\24\0\2\27\4\0\5\27\3\0\21\27\1\132"+
+    "\6\27\24\0\2\27\4\0\5\27\3\0\22\27\1\133"+
+    "\5\27\24\0\2\27\4\0\5\27\3\0\13\27\1\134"+
+    "\14\27\24\0\2\27\4\0\5\27\3\0\20\27\1\135"+
+    "\7\27\24\0\2\27\4\0\5\27\3\0\17\27\1\136"+
+    "\10\27\24\0\2\27\4\0\5\27\3\0\22\27\1\137"+
+    "\5\27\24\0\2\27\4\0\5\27\3\0\25\27\1\140"+
+    "\2\27\24\0\2\27\4\0\5\27\3\0\13\27\1\141"+
+    "\14\27\24\0\2\27\4\0\5\27\3\0\11\27\1\142"+
+    "\16\27\24\0\2\27\4\0\5\27\3\0\1\27\1\143"+
+    "\20\27\1\144\5\27\24\0\2\27\4\0\5\27\3\0"+
+    "\11\27\1\145\16\27\24\0\2\27\4\0\5\27\3\0"+
+    "\23\27\1\146\4\27\24\0\2\27\4\0\5\27\3\0"+
+    "\11\27\1\147\16\27\24\0\2\27\4\0\5\27\3\0"+
+    "\11\27\1\150\16\27\40\0\1\151\34\0\2\116\1\0"+
+    "\3\116\1\56\63\116\2\6\1\0\2\116\1\6\1\152"+
+    "\63\6\13\61\1\120\4\61\1\153\51\61\14\0\1\154"+
+    "\1\0\1\154\2\0\2\155\70\0\2\27\4\0\5\27"+
+    "\3\0\11\27\1\156\16\27\24\0\2\27\4\0\5\27"+
+    "\3\0\11\27\1\157\16\27\24\0\2\27\4\0\5\27"+
+    "\3\0\13\27\1\160\14\27\24\0\2\27\4\0\5\27"+
+    "\3\0\1\27\1\161\26\27\24\0\2\27\4\0\5\27"+
+    "\3\0\21\27\1\162\6\27\24\0\2\27\4\0\5\27"+
+    "\3\0\2\27\1\163\25\27\24\0\2\27\4\0\5\27"+
+    "\3\0\5\27\1\164\22\27\24\0\2\27\4\0\5\27"+
+    "\3\0\5\27\1\165\22\27\24\0\2\27\4\0\5\27"+
+    "\3\0\21\27\1\146\6\27\24\0\2\27\4\0\5\27"+
+    "\3\0\13\27\1\166\14\27\24\0\2\27\4\0\5\27"+
+    "\3\0\5\27\1\167\22\27\24\0\2\27\4\0\5\27"+
+    "\3\0\1\27\1\170\26\27\24\0\2\27\4\0\5\27"+
+    "\3\0\13\27\1\171\14\27\24\0\2\27\4\0\5\27"+
+    "\3\0\15\27\1\172\12\27\24\0\2\27\4\0\5\27"+
+    "\3\0\4\27\1\173\23\27\24\0\2\27\4\0\5\27"+
+    "\3\0\23\27\1\174\4\27\24\0\2\27\4\0\5\27"+
+    "\3\0\21\27\1\175\6\27\24\0\2\27\4\0\5\27"+
+    "\3\0\5\27\1\176\22\27\24\0\2\27\4\0\5\27"+
+    "\3\0\4\27\1\177\23\27\24\0\2\27\4\0\5\27"+
+    "\3\0\13\27\1\200\14\27\3\0\2\55\3\0\65\55"+
+    "\2\0\1\121\1\0\1\121\106\0\2\155\70\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\201\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\7\27\1\202\20\27\24\0\2\27"+
+    "\4\0\5\27\3\0\5\27\1\203\22\27\24\0\2\27"+
+    "\4\0\5\27\3\0\12\27\1\204\15\27\24\0\2\27"+
+    "\4\0\5\27\3\0\21\27\1\205\6\27\24\0\2\27"+
+    "\4\0\5\27\3\0\13\27\1\206\14\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\207\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\5\27\1\210\22\27\24\0\2\27"+
+    "\4\0\5\27\3\0\20\27\1\211\7\27\24\0\2\27"+
+    "\4\0\5\27\3\0\20\27\1\212\7\27\24\0\2\27"+
+    "\4\0\5\27\3\0\22\27\1\213\5\27\24\0\2\27"+
+    "\4\0\5\27\3\0\13\27\1\214\14\27\24\0\2\27"+
+    "\4\0\5\27\3\0\20\27\1\215\7\27\24\0\2\27"+
+    "\4\0\5\27\3\0\5\27\1\216\22\27\24\0\2\27"+
+    "\4\0\5\27\3\0\7\27\1\217\20\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\220\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\1\27\1\221\26\27\24\0\2\27"+
+    "\4\0\5\27\3\0\5\27\1\222\22\27\24\0\2\27"+
+    "\4\0\5\27\3\0\4\27\1\223\23\27\24\0\2\27"+
+    "\4\0\5\27\3\0\14\27\1\224\13\27\24\0\2\27"+
+    "\4\0\5\27\3\0\6\27\1\225\21\27\24\0\2\27"+
+    "\4\0\5\27\3\0\20\27\1\226\7\27\24\0\2\27"+
+    "\4\0\5\27\3\0\13\27\1\227\14\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\230\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\231\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\16\27\1\232\11\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\233\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\21\27\1\234\6\27\24\0\2\27"+
+    "\4\0\5\27\3\0\5\27\1\235\22\27\24\0\2\27"+
+    "\4\0\5\27\3\0\1\27\1\236\26\27\24\0\2\27"+
+    "\4\0\5\27\3\0\1\27\1\237\26\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\240\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\17\27\1\241\10\27\24\0\2\27"+
+    "\4\0\5\27\3\0\15\27\1\242\12\27\24\0\2\27"+
+    "\4\0\5\27\3\0\3\27\1\243\24\27\24\0\2\27"+
+    "\4\0\5\27\3\0\27\27\1\244\24\0\2\27\4\0"+
+    "\5\27\3\0\22\27\1\245\5\27\24\0\2\27\4\0"+
+    "\5\27\3\0\5\27\1\246\22\27\24\0\2\27\4\0"+
+    "\5\27\3\0\21\27\1\247\6\27\3\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[140];
+    int [] result = new int[7076];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -205,10 +348,14 @@ public class Toy implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\1\2\11\2\1\2\11\6\1";
+    "\1\0\4\1\1\0\1\11\1\0\3\11\1\1\1\11"+
+    "\1\1\1\11\3\1\1\11\1\1\1\11\3\1\2\11"+
+    "\15\1\1\11\1\0\3\11\1\0\1\11\1\0\1\11"+
+    "\1\0\2\1\1\0\2\11\25\1\1\11\4\0\1\11"+
+    "\1\0\26\1\1\0\2\1\1\0\73\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[14];
+    int [] result = new int[167];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -286,6 +433,13 @@ public class Toy implements java_cup.runtime.Scanner {
   /** Whether the user-EOF-code has already been executed. */
   private boolean zzEOFDone;
 
+  /* user code: */
+TrieTable trie = new TrieTable();
+
+public void outputTrie() {
+	trie.output();
+}
+
 
   /**
    * Creates a new scanner
@@ -293,15 +447,7 @@ public class Toy implements java_cup.runtime.Scanner {
    * @param   in  the java.io.Reader to read input from.
    */
   public Toy(java.io.Reader in) {
-  // User added code.
-// Add keyword identifiers to the trie table.
-//File root = new File("input2.txt");
-
-//File infile = new File("input2.txt");
-//Scanner s;
-
-
-// end user added code.
+  
     this.zzReader = in;
   }
 
@@ -645,40 +791,265 @@ public class Toy implements java_cup.runtime.Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { System.out.println("ws ");
+            { /* Do nothing */
             }
             // fall through
-          case 8: break;
+          case 53: break;
           case 2:
-            { System.out.println("semicolon ");return new java_cup.runtime.Symbol(syntax.sym.SEMICOL);
+            { System.out.println();
             }
             // fall through
-          case 9: break;
+          case 54: break;
           case 3:
-            { System.out.println("equal ");return new java_cup.runtime.Symbol(syntax.sym.EQUAL);
+            { System.out.print("not ");
             }
             // fall through
-          case 10: break;
+          case 55: break;
           case 4:
-            { System.out.println("id "); return new java_cup.runtime.Symbol(syntax.sym.ID);
+            { System.out.print("mod ");
             }
             // fall through
-          case 11: break;
+          case 56: break;
           case 5:
-            { System.out.println("leftparen ");return new java_cup.runtime.Symbol(syntax.sym.LEFTPAREN);
+            { System.out.print("leftparen ");
             }
             // fall through
-          case 12: break;
+          case 57: break;
           case 6:
-            { System.out.println("leftparen ");return new java_cup.runtime.Symbol(syntax.sym.RIGHTPAREN);
+            { System.out.print("rightparen ");
             }
             // fall through
-          case 13: break;
+          case 58: break;
           case 7:
-            { System.out.println("boolean");
+            { System.out.print("mult ");
             }
             // fall through
-          case 14: break;
+          case 59: break;
+          case 8:
+            { System.out.print("plus ");
+            }
+            // fall through
+          case 60: break;
+          case 9:
+            { System.out.print("comma ");
+            }
+            // fall through
+          case 61: break;
+          case 10:
+            { System.out.print("minus ");
+            }
+            // fall through
+          case 62: break;
+          case 11:
+            { System.out.print("period ");
+            }
+            // fall through
+          case 63: break;
+          case 12:
+            { System.out.print("div ");
+            }
+            // fall through
+          case 64: break;
+          case 13:
+            { System.out.print("intconstant ");
+            }
+            // fall through
+          case 65: break;
+          case 14:
+            { System.out.print("semicolon ");
+            }
+            // fall through
+          case 66: break;
+          case 15:
+            { System.out.print("less ");
+            }
+            // fall through
+          case 67: break;
+          case 16:
+            { System.out.print("equal ");
+            }
+            // fall through
+          case 68: break;
+          case 17:
+            { System.out.print("greater ");
+            }
+            // fall through
+          case 69: break;
+          case 18:
+            { System.out.printf("id "); trie.insert(yytext());
+            }
+            // fall through
+          case 70: break;
+          case 19:
+            { System.out.print("leftbracket ");
+            }
+            // fall through
+          case 71: break;
+          case 20:
+            { System.out.print("rightbracket ");
+            }
+            // fall through
+          case 72: break;
+          case 21:
+            { System.out.print("leftbrace ");
+            }
+            // fall through
+          case 73: break;
+          case 22:
+            { System.out.print("rightbrace ");
+            }
+            // fall through
+          case 74: break;
+          case 23:
+            { System.out.print("noteq ");
+            }
+            // fall through
+          case 75: break;
+          case 24:
+            { System.out.print("stringconstant ");
+            }
+            // fall through
+          case 76: break;
+          case 25:
+            { System.out.print("and ");
+            }
+            // fall through
+          case 77: break;
+          case 26:
+            { System.out.print("doubleconstant ");
+            }
+            // fall through
+          case 78: break;
+          case 27:
+            { System.out.print("lesseq ");
+            }
+            // fall through
+          case 79: break;
+          case 28:
+            { System.out.print("greatereq ");
+            }
+            // fall through
+          case 80: break;
+          case 29:
+            { System.out.print("if ");
+            }
+            // fall through
+          case 81: break;
+          case 30:
+            { System.out.print("or ");
+            }
+            // fall through
+          case 82: break;
+          case 31:
+            { System.out.print("for ");
+            }
+            // fall through
+          case 83: break;
+          case 32:
+            { System.out.print("int ");
+            }
+            // fall through
+          case 84: break;
+          case 33:
+            { System.out.print("new ");
+            }
+            // fall through
+          case 85: break;
+          case 34:
+            { System.out.print("else ");
+            }
+            // fall through
+          case 86: break;
+          case 35:
+            { System.out.print("null ");
+            }
+            // fall through
+          case 87: break;
+          case 36:
+            { System.out.print("this ");
+            }
+            // fall through
+          case 88: break;
+          case 37:
+            { System.out.print("booleanconstant ");
+            }
+            // fall through
+          case 89: break;
+          case 38:
+            { System.out.print("void ");
+            }
+            // fall through
+          case 90: break;
+          case 39:
+            { System.out.print("break ");
+            }
+            // fall through
+          case 91: break;
+          case 40:
+            { System.out.print("class ");
+            }
+            // fall through
+          case 92: break;
+          case 41:
+            { System.out.print("while ");
+            }
+            // fall through
+          case 93: break;
+          case 42:
+            { System.out.print("string ");
+            }
+            // fall through
+          case 94: break;
+          case 43:
+            { System.out.print("double ");
+            }
+            // fall through
+          case 95: break;
+          case 44:
+            { System.out.print("readln ");
+            }
+            // fall through
+          case 96: break;
+          case 45:
+            { System.out.print("return ");
+            }
+            // fall through
+          case 97: break;
+          case 46:
+            { System.out.print("boolean ");
+            }
+            // fall through
+          case 98: break;
+          case 47:
+            { System.out.print("extends ");
+            }
+            // fall through
+          case 99: break;
+          case 48:
+            { System.out.print("println ");
+            }
+            // fall through
+          case 100: break;
+          case 49:
+            { System.out.print("asssignop ");
+            }
+            // fall through
+          case 101: break;
+          case 50:
+            { System.out.print("newarray ");
+            }
+            // fall through
+          case 102: break;
+          case 51:
+            { System.out.print("interace ");
+            }
+            // fall through
+          case 103: break;
+          case 52:
+            { System.out.print("implements ");
+            }
+            // fall through
+          case 104: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
