@@ -1,4 +1,3 @@
-/* Simple +/-/* expression language; parser evaluates constant expressions on the fly*/
 package syntax;
 
 import lexer.*;
@@ -21,47 +20,53 @@ parser code {:
 			throw new Error( "Unable to open file \"" + file + "\"" );
 			}			
     	}
+    	
+    public Toy getToy(){
+    	return lexer;
+    }
+    	
 :}
 
 /* define how to connect to the scanner! */
-//init with {: s.init(); :};
 scan with {: return lexer.next_token(); :};
 
-/* Terminals (tokens returned by the scanner). */
+/* Terminals */
 terminal            BOOLEAN, BREAK, CLASS, DOUBLE, ELSE, EXTENDS, FOR, IF;
 terminal			IMPLEMENTS, INT, INTERFACE, NEW, NEWARRAY, NULL, PRINTLN;
 terminal			READLN, RETURN, STRING, THIS, VOID, WHILE, PLUS, MINUS;
 terminal			MULT, DIV, MOD, LESS, LESSEQ, GREATER, GREATEREQ, EQUAL;
 terminal			NOTEQ, AND, OR, NOT, ASSIGNOP, SEMICOL, COMMA, PERIOD;
 terminal			LEFTPAREN, RIGHTPAREN, LEFTBRACKET, RIGHTBRACKET;
-terminal			LEFTBRACE, RIGHTBRACE, INTCONST, DOUBLECONST;
-terminal			STRINGCONST, BOOLEANCONST, ID;
+terminal			LEFTBRACE, RIGHTBRACE, INTCONSTANT, DOUBLECONSTANT;
+terminal			STRINGCONSTANT, BOOLEANCONSTANT, ID;
 
-/* Everything below I didn't use just kept it just in case */
-terminal TIMES, UMINUS, SEMI, LPAREN, RPAREN;
-terminal Integer    NUMBER;        // our scanner provides numbers as integers
-
+terminal LEFT, RIGHT, NEWLINE, TIMES, DIVIDE, ASSIGN;
+terminal String NUMBER;
+terminal String IDENT;
 
 /* Non terminals */
-non terminal            expr_list;
-non terminal Integer    expr;      // used to store evaluated subexpressions
+nonterminal program, decl, StmtList, Stmt, numbers;
+nonterminal Integer Expr, Term, Factor;
+start with StmtList;
 
-/* Precedences */
-precedence left PLUS, MINUS;
-precedence left TIMES;
-precedence left UMINUS;
-
-/* The grammar rules */
-expr_list ::= expr_list expr:e SEMI         {: System.out.println(e);:}
-            | expr:e SEMI                   {: System.out.println(e);:}
+StmtList::= 
+ 
+	|
+		StmtList Stmt
+	;
+	
+Stmt::= 
+	IDENT:ident ASSIGN Expr:expr NEWLINE
+{:
+System.out.println("");
+:}
+|
+Expr:expr NEWLINE
+{:
+System.out.print( expr.intValue() );
+:}
+|
+error NEWLINE
+|
+NEWLINE
 ;
-expr      ::= expr:e1 PLUS  expr:e2         {: RESULT = e1+e2;       :}
-             | expr:e1 MINUS expr:e2        {: RESULT = e1-e2;       :}
-             | expr:e1 TIMES expr:e2        {: RESULT = e1*e2;       :}
-             | MINUS expr:e                 {: RESULT = -e;          :}
-  	     %prec UMINUS
-       | LPAREN expr:e RPAREN	         {: RESULT = e;           :}
-       | NUMBER:n	                     {: RESULT = n;           :}
-             ;
-             
-             
