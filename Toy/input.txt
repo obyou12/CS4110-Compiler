@@ -1,57 +1,32 @@
-ababababab
-aaaabbbbababa
+int fact (int x) {
+	// recursive factorial function
+	if (x>1) return x * fact(x-1);
+	else return 1;
+}
 
-/* %{
-// define tokens
-public static final int _boolean = 1000;
-public static final int _break = 1002;
-public static final int _class = 1003;
-public static final int _double = 1004;
-public static final int _else = 1005
-_extends = 1006
-_for = 1007
-_if = 1008
-_implements = 1009
-_int = 1010
-_interface= = 1011
-_new = 1012
-_newarray = 1013
-_null = 1014
-_println = 1015
-_readln = 1016
-_return = 1017
-_string = 1018
-_this = 1019
-_void = 1020
-_while = 1021
-_plus = 1022
-_minus = 1023
-_multiplication = 1024
-_division = 1025
-_mod = 1026
-_less = 1027
-_lessequal = 1028
-_greater = 1029
-_greaterequal = 1030
-_equal = 1031
-_notequal = 1032
-_and = 1033
-_or = 1034
-_not = 1035
-_assignop = 1036
-_semicolon = 1037
-_comma = 1038
-_period = 1039
-_leftparen = 1040
-_rightparen = 1041
-_leftbracket = 1042
-_rightbracket = 1043
-_leftbrace = 1044
-_rightbrace = 1045
-_intconstant = 1046
-_doubleconstant = 1047
-_stringconstant = 1048
-_booleanconstant = 1049
-_id = 1050
+void main () {
+/* Fall Semester 2020
+CS 4110 compiler project #1
+A lexical analyzer */
 
-%}
+	int x;
+	int total;
+	println ("factorial of 10 is ", fact (10), " from the recursive function");
+	total = 1; x = 1;
+	for ( ; x<=10; ) { total = total * x; x = x + 1; }
+	println ("iterative result of 10! is ", total);
+}
+
+class CS4110 {
+
+	int Funny;
+	double funny;
+	boolean flag;
+	string s;
+	int [] a;
+	flag = true;
+	Funny = 0X89aB; funny = 123456E+7;
+	s = "hello world";
+	while (x = (Funny/10) <0) println (s, " have fun !");
+	a = newarray (20, int);
+}
