@@ -9,7 +9,7 @@ Steps to run:
 
 2: Create a Java project in Eclipse.
 
-3: Move folders from downloaded folder to project making Main.java the source.
+3: Move folders from downloaded folder to project making Main.java the default package.
 
 4: In the Eclipse package explorer, configure the properties. Under the libraries tab of the Java Build Path option, add the java-cup-11b-runtime.jar from Cup/lib as an external jar.
 
