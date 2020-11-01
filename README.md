@@ -14,3 +14,5 @@ Steps to run:
 4: In the Eclipse package explorer, configure the properties. Under the libraries tab of the Java Build Path option, add the java-cup-11b-runtime.jar from Cup/lib as an external jar.
 
 5: Run the program with Run Configurations and add the name of the input file as the Program Argument.
+
+6: Check the console for the output.
