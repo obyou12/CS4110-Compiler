@@ -4,6 +4,30 @@ import lexer.*;
 import java.io.*;
 import java_cup.runtime.*;
 
+action code{:
+	// User Generated Code
+
+	// output the reductions and their production numbers
+	// this assumes the Object is an INTeger and is used when RESULT
+	// is being used to hold the production number.
+	private String reduction(Object... reductions) {
+		String str = "";
+		for(Object i: reductions) {
+			str += "[reduce " + i + "] ";
+		}
+		return str + "\n";
+	}
+	
+	private String shift(Object... shifts) {
+		String str = "";
+		for(Object i: shifts) {
+		str += i +  " [shift]\n";
+		}
+		
+		return str;
+	}
+:}
+
 parser code {:
     // Connect this parser to a scanner!
     private Toy lexer;
@@ -35,7 +59,7 @@ terminal            BOOLEAN, BREAK, CLASS, DOUBLE, ELSE, EXTENDS, FOR, IF;
 terminal			IMPLEMENTS, INT, INTERFACE, NEW, NEWARRAY, NULL, PRINTLN;
 terminal			READLN, RETURN, STRING, THIS, VOID, WHILE, PLUS, MINUS;
 terminal			MULT, DIV, MOD, LESS, LESSEQ, GREATER, GREATEREQ, EQUAL;
-terminal			NOTEQ, AND, OR, NOT, ASSIGNOP, SEMICOL, COMMA, PERIOD;
+terminal			NOTEQ, AND, OR, NOT, ASSIGNOP, SEMICOLON, COMMA, PERIOD;
 terminal			LEFTPAREN, RIGHTPAREN, LEFTBRACKET, RIGHTBRACKET;
 terminal			LEFTBRACE, RIGHTBRACE, INTCONSTANT, DOUBLECONSTANT;
 terminal			STRINGCONSTANT, BOOLEANCONSTANT, ID;
@@ -45,28 +69,154 @@ terminal String NUMBER;
 terminal String IDENT;
 
 /* Non terminals */
-nonterminal program, decl, StmtList, Stmt, numbers;
-nonterminal Integer Expr, Term, Factor;
-start with StmtList;
+nonterminal Program, Decl, DeclPlus, VariableDecl, Variable, Type;
+nonterminal FunctionDecl, Formals, ClassDecl, Field;
+nonterminal InterfaceDecl, Prototype, StmtBlock, Stmt;
+nonterminal IfStmt, WhileStmt, ForStmt, BreakStmt;
+nonterminal ReturnStmt, PrintStmt, Expr, Lvalue;
+nonterminal Actuals, Constant, VariableDeclStar, LvaluenotID;
+nonterminal FieldStar, IdCommPlus, PrototypeStar, StmtStar;
+start with Program;
 
-StmtList::= 
- 
-	|
-		StmtList Stmt
-	;
-	
-Stmt::= 
-	IDENT:ident ASSIGN Expr:expr NEWLINE
-{:
-System.out.println("");
-:}
-|
-Expr:expr NEWLINE
-{:
-System.out.print( expr.intValue() );
-:}
-|
-error NEWLINE
-|
-NEWLINE
+Program 		::= Decl:d DeclPlus: d2				{: RESULT = 101; System.out.print(reduction(d,d2)); :}												
+;
+
+DeclPlus 		::= Decl:d DeclPlus:d2 				{: RESULT = 201; System.out.print(reduction(d,d2)); :}
+				|									{: RESULT = 202; :} 
+;
+
+Decl 			::= Variable:v SEMICOLON		{: RESULT = 301; System.out.print(reduction(v)); :}	
+				| FunctionDecl:f 					{: RESULT = 302; System.out.print(reduction(f)); :}
+				| ClassDecl:c 						{: RESULT = 303; System.out.print(reduction(c)); :}
+				| InterfaceDecl:i					{: RESULT = 304; System.out.print(reduction(i)); :}
+;
+
+VariableDecl 	::= Variable:v SEMICOLON 			{: RESULT = 401; System.out.print(reduction(v) + shift("SEMICOLON")); :}
+;
+
+Variable ::= Type:t ID								{: RESULT = 501; System.out.print(reduction(t)+ "ID [shift]\n"); :}
+//				| ID ID								{: RESULT = 502; System.out.print(shift("ID","ID")); :} // added to fix reduce reduce error between lvalue and type
+;
+
+Type 			::= INT								{: RESULT = 601; System.out.print("INT [shift] "); :}//shift("INT")
+				 DOUBLE 							{: RESULT = 602; System.out.print("double [shift]\n"); :}
+				| BOOLEAN 							{: RESULT = 603; System.out.print("BOOLEAN [shift]\n"); :}
+				| STRING 							{: RESULT = 604; System.out.print("string [shift]\n"); :}
+				| Type:t LEFTBRACKET RIGHTBRACKET 	{: RESULT = 605; System.out.print(reduction(t) + "LEFTBRACKET [shift]\n" + "RIGHTBRACKET [shift]\n"); :}
+				//| ID								{: RESULT = 606; System.out.print("ID [shift]\n"); :}
+;
+
+FunctionDecl 	::= Type:t ID LEFTPAREN Formals:f RIGHTPAREN StmtBlock:s	{: RESULT = 701; System.out.print(reduction(t) + shift("ID","LEFTPAREN") + reduction(f) + "RIGHTPAREN [shift]\n" + reduction(s)); :}
+				| VOID ID LEFTPAREN Formals:f RIGHTPAREN StmtBlock:s		{: RESULT = 702; System.out.print(shift("VOID","ID","LEFTPAREN") + reduction(f) + shift("RIGHTPAREN") + reduction(s)); :}
+				| ID ID LEFTPAREN Formals:f RIGHTPAREN StmtBlock:s			{: RESULT = 703; System.out.print(shift("ID","ID","LEFTPAREN") + reduction(f) + shift("RIGHTPAREN") + reduction(s)); :}
+				| Stmt:s													{: RESULT = 701; System.out.print(reduction(s)); :}
+;
+
+Formals 		::= VariableDecl:v							{: RESULT = 801; System.out.print(reduction(v)); :}
+				|											{: RESULT = 802; :}
+;
+
+//VariableCommPlus 	::= COMMA variable:v1 variablecommplus:v2 	{: RESULT = 901; System.out.print("COMMA [shift]\n" + reduction(v1,v2)); :}
+//					|											{: RESULT = 902; :}
+//;
+
+//StmtBlock ::= LEFTBRACE VariableDeclStar:v /*stmtstar:s*/ RIGHTBRACE		{: RESULT = 1701; System.out.print(shift("LEFTBRACE") + reduction(v/*,s*/) + shift("RIGHTBRACE")); :}
+	      //| LEFTBRACE stmtstar:s RIGHTBRACE								{: RESULT = 1702; System.out.print(shift("LEFTBRACE") + reduction(s) + shift("RIGHTBRACE")); :}
+		  //| LEFTBRACE variabledeclstar:v RIGHTBRACE						{: RESULT = 1703; System.out.print(shift("LEFTBRACE") + reduction(v) + shift("RIGHTBRACE")); :}
+//	      | LEFTBRACE RIGHTBRACE											{: RESULT = 1704; System.out.print(shift("LEFTBRACE", "RIGHTBRACE")); :}
+//;
+
+ClassDecl 		::= CLASS ID EXTENDS ID IMPLEMENTS ID IdCommPlus:i LEFTBRACE FieldStar:f RIGHTBRACE 	{: RESULT = 1001; System.out.print(shift("CLASS","ID","EXTENDS","ID","IMPLEMENTS","ID") + reduction(i) + shift("LEFTBRACE") + reduction(f) + shift("RIGHTBRACE")); :}// FIXES '<>' PROBLEM
+				  | CLASS ID EXTENDS ID IMPLEMENTS ID IdCommPlus:i LEFTBRACE RIGHTBRACE					{: RESULT = 1002; System.out.print(shift("CLASS","ID","EXTENDS","ID","IMPLEMENTS","ID") + reduction(i) + shift("LEFTBRACE") + shift("RIGHTBRACE")); :}
+				  | CLASS ID EXTENDS ID LEFTBRACE FieldStar:f RIGHTBRACE								{: RESULT = 1003; System.out.print(shift("CLASS","ID","EXTENDS","ID","LEFTBRACE") + reduction(f) + shift("RIGHTBRACE")); :}
+				  | CLASS ID EXTENDS ID LEFTBRACE RIGHTBRACE											{: RESULT = 1004; System.out.print(shift("CLASS","ID","EXTENDS","ID","LEFTBRACE","RIGHTBRACE")); :}
+				  | CLASS ID IMPLEMENTS ID IdCommPlus:i LEFTBRACE FieldStar:f RIGHTBRACE				{: RESULT = 1005; System.out.print(shift("CLASS","ID","IMPLEMENTS","ID") + reduction(i) + shift("LEFTBRACE") + reduction(f) + shift("RIGHTBRACE"));:}
+				  | CLASS ID IMPLEMENTS ID IdCommPlus:i LEFTBRACE RIGHTBRACE							{: RESULT = 1006; System.out.print(shift("CLASS","ID","IMPLEMENTS","ID") + reduction(i) + shift("LEFTBRACE", "RIGHTBRACE"));:}
+				  | CLASS ID LEFTBRACE FieldStar:f RIGHTBRACE											{: RESULT = 1007; System.out.print(shift("CLASS","ID","LEFTBRACE") + reduction(f) + shift("RIGHTBRACE")); :}
+				  | CLASS ID LEFTBRACE RIGHTBRACE														{: RESULT = 1008; System.out.print(shift("CLASS","ID","LEFTBRACE","RIGHTBRACE"));:}
+;
+
+FieldStar ::= Field:f1 FieldStar:f2 			{: RESULT = 1101; System.out.print(reduction(f1,f2)); :}// FIXES '*' PROBLEM
+			| Field:f1							{: RESULT = 1102; System.out.print(reduction(f1)); :}
+;
+
+IdCommPlus ::= COMMA ID IdCommPlus:i 		{: RESULT = 1201; System.out.print(shift("COMMA", "ID") + reduction(i)); :}// FIXES '+,' PROBLEM
+	      |									{: RESULT = 1202; :}
+;
+
+Field ::= Variable:v SEMICOLON 							{: RESULT = 1301; System.out.print(reduction(v)); :}
+	| FunctionDecl:f									{: RESULT = 1302; System.out.print(reduction(f)); :}
+;
+
+InterfaceDecl ::= INTERFACE ID LEFTBRACE PrototypeStar:p RIGHTBRACE		{: RESULT = 1401; System.out.print(shift("INTERFACE", "ID", "LEFTBRACE") + reduction(p) + shift("RIGHTBRACE")); :}
+		  | INTERFACE ID LEFTBRACE RIGHTBRACE							{: RESULT = 1402; System.out.print(shift("INTERFACE", "ID", "LEFTBRACE", "RIGHTBRACE")); :}
+;
+
+PrototypeStar ::= Prototype:p1 PrototypeStar:p2 						{: RESULT = 1501; System.out.print(reduction(p1,p2)); :} // FIXED '*' PROBLEM
+			| Prototype:p1												{: RESULT = 1502; System.out.print(reduction(p1)); :}
+;
+
+Prototype ::= Type:t ID LEFTPAREN Formals:f RIGHTPAREN SEMICOLON			{: RESULT = 1601; System.out.print(reduction(t) + shift("ID", "LEFTPAREN") + reduction(f) + shift("RIGHTPAREN","SEMICOLON"));:}
+	     | VOID ID LEFTPAREN Formals:f RIGHTPAREN SEMICOLON					{: RESULT = 1602; System.out.print(shift("VOID", "ID", "LEFTPAREN") + reduction(f) + shift("RIGHTPAREN","SEMICOLON"));:}
+;
+
+StmtBlock ::= LEFTBRACE VariableDeclStar:v StmtStar:s RIGHTBRACE		{: RESULT = 1701; System.out.print(shift("LEFTBRACE") + reduction(v,s) + shift("RIGHTBRACE")); :}
+	      | LEFTBRACE StmtStar:s RIGHTBRACE								{: RESULT = 1702; System.out.print(shift("LEFTBRACE") + reduction(s) + shift("RIGHTBRACE")); :}
+		  | LEFTBRACE VariableDeclStar:v RIGHTBRACE						{: RESULT = 1703; System.out.print(shift("LEFTBRACE") + reduction(v) + shift("RIGHTBRACE")); :}
+	      | LEFTBRACE RIGHTBRACE										{: RESULT = 1704; System.out.print(shift("LEFTBRACE", "RIGHTBRACE"));:}
+	      
+;
+
+VariableDeclStar ::= VariableDeclStar:v1 Variable:v2 SEMICOLON  		{: RESULT = 1801; System.out.print(reduction(v1,v2)); :} 
+			| Variable:v SEMICOLON // variabledecl:v1 					{: RESULT = 1802; System.out.print(reduction(v1)); :}
+;
+
+StmtStar ::= Stmt:s1 StmtStar:s2 												{: RESULT = 1901; System.out.print(reduction(s1,s2)); :}
+			| Stmt:s1															{: RESULT = 1902; System.out.print(reduction(s1)); :}
+;
+
+
+
+Stmt ::= Expr:e SEMICOLON 													{: RESULT = 2001; System.out.print(reduction(e) + shift("SEMICOLON")); :} 
+	| SEMICOLON 		 													{: RESULT = 2002; System.out.print(shift("SEMICOLON")); :} 
+	| Constant:c Expr:e SEMICOLON 											{: RESULT = 2003; System.out.print(reduction(c)+reduction(e) + shift("SEMICOLON")); :} 
+	//| Type:t Expr:e SEMICOLON 											{: RESULT = 2003; System.out.print(reduction(t) + reduction(e) + shift("SEMICOLON")); :} 
+	| INT Expr:e SEMICOLON 											{: RESULT = 2004; System.out.print(shift("INT") + reduction(e) + shift("SEMICOLON")); :}
+	//| IfStmt:i			 													{: RESULT = 2003; System.out.print(reduction(i)); :} 
+	//| WhileStmt:w			 												{: RESULT = 2004; System.out.print(reduction(w)); :} 
+	//| ForStmt:f			 													{: RESULT = 2005; System.out.print(reduction(f)); :} 
+	//| BreakStmt:b			 												{: RESULT = 2006; System.out.print(reduction(b)); :} 
+	//| ReturnStmt:r			 												{: RESULT = 2007; System.out.print(reduction(r)); :} 
+	//| PrintStmt:p			 												{: RESULT = 2008; System.out.print(reduction(p)); :} 
+	//| StmtBlock:s			 												{: RESULT = 2009; System.out.print(reduction(s)); :} 
+;
+
+//VariableDeclStar ::= VariableDeclStar:v1 Variable:v2 SEMICOLON	 		{: RESULT = 1801; System.out.print(reduction(v1,v2)); :} 
+//			| Variable:v SEMICOLON // VariableDecl:v1 					{: RESULT = 1802; System.out.print(reduction(v1)); :}
+//;
+
+
+Expr ::= Lvalue:l EQUAL Expr:e										{: RESULT = 2801; System.out.print(reduction(l)+shift("EQUAL")+reduction(e)); :} 
+				| Constant:c										{: RESULT = 2802; System.out.print(reduction(c)); :}
+				| Lvalue:l											{: RESULT = 2803; System.out.print(reduction(l)); :}
+				//| ID												{: RESULT = 2825; System.out.print(shift("ID")); :}
+				// | Constant and other things
+				// | Expr + Expr
+				// | Expr:e1 EQUAL Expr:e2									{: RESULT = 2817; System.out.print(reduction(e1) + shift("EQUAL") + reduction(e2)); :} 
+;
+
+Lvalue ::= ID															{: RESULT = 2902; System.out.print(shift("ID")); :}
+//		 | LvaluenotID:l												{: RESULT = 2903; System.out.print(reduction(l)); :}
+;
+
+LvaluenotID ::=  Lvalue:l LEFTBRACKET Expr:e RIGHTBRACKET		{: RESULT = 3301; System.out.print(reduction(l) + shift("LEFTBRACKET") + reduction(e) + shift("RIGHTBRACKET")); :}
+				| LvaluenotID:l LEFTBRACKET Expr:e RIGHTBRACKET	{: RESULT = 3302; System.out.print(reduction(l) + shift("LEFTBRACKET") + reduction(e) + shift("RIGHTBRACKET")); :}
+				| Lvalue:l PERIOD ID							{: RESULT = 3303; System.out.print(reduction(l) + shift("PERIOD", "ID")); :} 
+;
+         
+Constant ::= INTCONSTANT										{: RESULT = 3201; System.out.println("INTCONSTANT [shift]"); :} 
+	    | DOUBLECONSTANT										{: RESULT = 3202; System.out.println("DOUBLECONSTANT [shift]"); :} 
+	    | STRINGCONSTANT										{: RESULT = 3203; System.out.println("STRINGCONSTANT [shift]"); :} 
+	    | BOOLEANCONSTANT										{: RESULT = 3204; System.out.println("BOOLEANCONSTANT [shift]"); :} 
+	    | NULL													{: RESULT = 3205; System.out.println("NULL [shift]"); :} 
 ;
