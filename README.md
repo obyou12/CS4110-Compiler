@@ -11,10 +11,10 @@ Steps to run:
 
 2: Create a Java project in Eclipse.
 
-3: Move folders with programs to src, making Main.java the default package. Move the inputs to the project file.
+3: Move folders with programs to src, making Main.java the default package. Move the inputs to the project file.(Make sure your Toy file is linked to same package.)
 
 4: In the Eclipse package explorer, configure the properties. Under the libraries tab of the Java Build Path option, add the java-cup-11b-runtime.jar from Cup/lib as an external jar.
 
-5: Run the program with Run Configurations and add the name of the input file as the Program Argument.
+5: Run the program with Run Configurations and go to Arguments. After add the name of the input file as the Program Argument.
 
 6: Check the console for the output.
