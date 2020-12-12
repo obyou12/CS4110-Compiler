@@ -1,2 +1,3 @@
-// in function
-result = 5.times(4);
+void f() {
+    result = 5.times(4);
+}
