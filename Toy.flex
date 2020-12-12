@@ -43,59 +43,59 @@ Integer = [+-]?{Digit}+ | [+-]?{Hexadecimal}
 %% // ----------------------------------------------------
 
 // keywords
-boolean            	{System.out.print("boolean "); return new java_cup.runtime.Symbol(syntax.sym.BOOLEAN);}
-break				{System.out.print("break "); return new java_cup.runtime.Symbol(syntax.sym.BREAK);}
-class				{System.out.print("class "); return new java_cup.runtime.Symbol(syntax.sym.CLASS);}
-double				{System.out.print("double "); return new java_cup.runtime.Symbol(syntax.sym.DOUBLE);}
-else				{System.out.print("else "); return new java_cup.runtime.Symbol(syntax.sym.ELSE);}
-extends				{System.out.print("extends "); return new java_cup.runtime.Symbol(syntax.sym.EXTENDS);}
-false				{System.out.print("booleanconstant "); return new java_cup.runtime.Symbol(syntax.sym.BOOLEANCONSTANT);}
-for					{System.out.print("for "); return new java_cup.runtime.Symbol(syntax.sym.FOR);}
-if					{System.out.print("if "); return new java_cup.runtime.Symbol(syntax.sym.IF);}
-implements			{System.out.print("implements "); return new java_cup.runtime.Symbol(syntax.sym.IMPLEMENTS);}
-int					{System.out.print("int "); return new java_cup.runtime.Symbol(syntax.sym.INT);}
-interface			{System.out.print("interace "); return new java_cup.runtime.Symbol(syntax.sym.INTERFACE);}
-new					{System.out.print("new "); return new java_cup.runtime.Symbol(syntax.sym.NEW);}
-newarray			{System.out.print("newarray "); return new java_cup.runtime.Symbol(syntax.sym.NEWARRAY);}
-null				{System.out.print("null "); return new java_cup.runtime.Symbol(syntax.sym.NULL);}
-println				{System.out.print("println "); return new java_cup.runtime.Symbol(syntax.sym.PRINTLN);}
-readln				{System.out.print("readln "); return new java_cup.runtime.Symbol(syntax.sym.READLN);}
-return				{System.out.print("return "); return new java_cup.runtime.Symbol(syntax.sym.RETURN);}
-String 				{System.out.print("string "); return new java_cup.runtime.Symbol(syntax.sym.STRING);}
-this				{System.out.print("this "); return new java_cup.runtime.Symbol(syntax.sym.THIS);}
-true				{System.out.print("booleanconstant "); return new java_cup.runtime.Symbol(syntax.sym.BOOLEANCONSTANT);}
-void				{System.out.print("void "); return new java_cup.runtime.Symbol(syntax.sym.VOID);}
-while				{System.out.print("while "); return new java_cup.runtime.Symbol(syntax.sym.WHILE);}
+boolean            	{return new java_cup.runtime.Symbol(syntax.sym.BOOLEAN);}
+break				{return new java_cup.runtime.Symbol(syntax.sym.BREAK);}
+class				{return new java_cup.runtime.Symbol(syntax.sym.CLASS);}
+double				{return new java_cup.runtime.Symbol(syntax.sym.DOUBLE);}
+else				{return new java_cup.runtime.Symbol(syntax.sym.ELSE);}
+extends				{return new java_cup.runtime.Symbol(syntax.sym.EXTENDS);}
+false				{return new java_cup.runtime.Symbol(syntax.sym.BOOLEANCONSTANT);}
+for					{return new java_cup.runtime.Symbol(syntax.sym.FOR);}
+if					{return new java_cup.runtime.Symbol(syntax.sym.IF);}
+implements			{return new java_cup.runtime.Symbol(syntax.sym.IMPLEMENTS);}
+int					{return new java_cup.runtime.Symbol(syntax.sym.INT);}
+interface			{return new java_cup.runtime.Symbol(syntax.sym.INTERFACE);}
+new					{return new java_cup.runtime.Symbol(syntax.sym.NEW);}
+newarray			{return new java_cup.runtime.Symbol(syntax.sym.NEWARRAY);}
+null				{return new java_cup.runtime.Symbol(syntax.sym.NULL);}
+println				{return new java_cup.runtime.Symbol(syntax.sym.PRINTLN);}
+readln				{return new java_cup.runtime.Symbol(syntax.sym.READLN);}
+return				{return new java_cup.runtime.Symbol(syntax.sym.RETURN);}
+String 				{return new java_cup.runtime.Symbol(syntax.sym.STRING);}
+this				{return new java_cup.runtime.Symbol(syntax.sym.THIS);}
+true				{return new java_cup.runtime.Symbol(syntax.sym.BOOLEANCONSTANT);}
+void				{return new java_cup.runtime.Symbol(syntax.sym.VOID);}
+while				{return new java_cup.runtime.Symbol(syntax.sym.WHILE);}
 
-"+"					{System.out.print("plus "); return new java_cup.runtime.Symbol(syntax.sym.PLUS);}
-"-"					{System.out.print("minus "); return new java_cup.runtime.Symbol(syntax.sym.MINUS);}
-"*"					{System.out.print("mult "); return new java_cup.runtime.Symbol(syntax.sym.MULT);}
-"/"					{System.out.print("div "); return new java_cup.runtime.Symbol(syntax.sym.DIV);}
-"%"					{System.out.print("mod "); return new java_cup.runtime.Symbol(syntax.sym.MOD);}
-"<"					{System.out.print("less "); return new java_cup.runtime.Symbol(syntax.sym.LESS);}
-"<="				{System.out.print("lesseq "); return new java_cup.runtime.Symbol(syntax.sym.LESSEQ);}
-">"					{System.out.print("greater "); return new java_cup.runtime.Symbol(syntax.sym.GREATER);}
-">="				{System.out.print("greatereq "); return new java_cup.runtime.Symbol(syntax.sym.GREATEREQ);}
-"=" 			   	{System.out.print("equal "); return new java_cup.runtime.Symbol(syntax.sym.EQUAL);}
-"!="				{System.out.print("noteq "); return new java_cup.runtime.Symbol(syntax.sym.NOTEQ);}
-"&&"				{System.out.print("and "); return new java_cup.runtime.Symbol(syntax.sym.AND);}
-"||"				{System.out.print("or "); return new java_cup.runtime.Symbol(syntax.sym.OR);}
-"!"					{System.out.print("not "); return new java_cup.runtime.Symbol(syntax.sym.NOT);}
-assignop			{System.out.print("assignop "); return new java_cup.runtime.Symbol(syntax.sym.ASSIGNOP);}
-";"					{System.out.print("semicolon "); return new java_cup.runtime.Symbol(syntax.sym.SEMICOLON);}
-","					{System.out.print("comma "); return new java_cup.runtime.Symbol(syntax.sym.COMMA);}
-"."					{System.out.print("period "); return new java_cup.runtime.Symbol(syntax.sym.PERIOD);}
-"("					{System.out.print("leftparen "); return new java_cup.runtime.Symbol(syntax.sym.LEFTPAREN);}
-")"					{System.out.print("rightparen "); return new java_cup.runtime.Symbol(syntax.sym.RIGHTPAREN);}
-"["					{System.out.print("leftbracket "); return new java_cup.runtime.Symbol(syntax.sym.LEFTBRACKET);}
-"]"					{System.out.print("rightbracket "); return new java_cup.runtime.Symbol(syntax.sym.RIGHTBRACKET);}
-"{"					{System.out.print("leftbrace "); return new java_cup.runtime.Symbol(syntax.sym.LEFTBRACE);}
-"}"					{System.out.print("rightbrace "); return new java_cup.runtime.Symbol(syntax.sym.RIGHTBRACE);}
+"+"					{return new java_cup.runtime.Symbol(syntax.sym.PLUS);}
+"-"					{return new java_cup.runtime.Symbol(syntax.sym.MINUS);}
+"*"					{return new java_cup.runtime.Symbol(syntax.sym.MULT);}
+"/"					{return new java_cup.runtime.Symbol(syntax.sym.DIV);}
+"%"					{return new java_cup.runtime.Symbol(syntax.sym.MOD);}
+"<"					{return new java_cup.runtime.Symbol(syntax.sym.LESS);}
+"<="				{return new java_cup.runtime.Symbol(syntax.sym.LESSEQ);}
+">"					{return new java_cup.runtime.Symbol(syntax.sym.GREATER);}
+">="				{return new java_cup.runtime.Symbol(syntax.sym.GREATEREQ);}
+"=" 			   	{return new java_cup.runtime.Symbol(syntax.sym.EQUAL);}
+"!="				{return new java_cup.runtime.Symbol(syntax.sym.NOTEQ);}
+"&&"				{return new java_cup.runtime.Symbol(syntax.sym.AND);}
+"||"				{return new java_cup.runtime.Symbol(syntax.sym.OR);}
+"!"					{return new java_cup.runtime.Symbol(syntax.sym.NOT);}
+assignop			{return new java_cup.runtime.Symbol(syntax.sym.ASSIGNOP);}
+";"					{return new java_cup.runtime.Symbol(syntax.sym.SEMICOLON);}
+","					{return new java_cup.runtime.Symbol(syntax.sym.COMMA);}
+"."					{return new java_cup.runtime.Symbol(syntax.sym.PERIOD);}
+"("					{return new java_cup.runtime.Symbol(syntax.sym.LEFTPAREN);}
+")"					{return new java_cup.runtime.Symbol(syntax.sym.RIGHTPAREN);}
+"["					{return new java_cup.runtime.Symbol(syntax.sym.LEFTBRACKET);}
+"]"					{return new java_cup.runtime.Symbol(syntax.sym.RIGHTBRACKET);}
+"{"					{return new java_cup.runtime.Symbol(syntax.sym.LEFTBRACE);}
+"}"					{return new java_cup.runtime.Symbol(syntax.sym.RIGHTBRACE);}
 
-{Double}			{System.out.print("doubleconstant "); return new java_cup.runtime.Symbol(syntax.sym.DOUBLECONSTANT);}
-{Integer}			{System.out.print("intconstant "); return new java_cup.runtime.Symbol(syntax.sym.INTCONSTANT);}
-{String}			{System.out.print("stringconstant "); return new java_cup.runtime.Symbol(syntax.sym.STRINGCONSTANT);}
-{Identifier}		{System.out.printf("id "); trie.insert(yytext()); return new java_cup.runtime.Symbol(syntax.sym.ID);}
+{Double}			{return new java_cup.runtime.Symbol(syntax.sym.DOUBLECONSTANT);}
+{Integer}			{return new java_cup.runtime.Symbol(syntax.sym.INTCONSTANT);}
+{String}			{return new java_cup.runtime.Symbol(syntax.sym.STRINGCONSTANT);}
+{Identifier}		{trie.insert(yytext()); return new java_cup.runtime.Symbol(syntax.sym.ID);}
 {Comment}			{/* Do nothing */}
 {Newline}			{System.out.println();}
 {Whitespace}		{/* Do nothing */}
