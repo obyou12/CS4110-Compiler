@@ -32,6 +32,8 @@ public class Main {
 		System.out.println("-End of Parse");
 		
 		p.getToy().outputTrie(); // output Trie table
+		
+		reader.close();
 	}		
 }
 
