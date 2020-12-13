@@ -23,7 +23,7 @@ New filename.flex (Toy.flex in our project) files can be compiled by using a com
 
 New filename.cup (toy.cup in our project) files can be compiled by running the command "cup filename.cup". This will generate a parser.java and sym.java file which can then be dragged and overwritten in the project explorer in Eclipse. They can be also be linked at this step so it doesn't have to be manually dragged after each compiling.
 
-P.P.S Links to configure CUP and JFLEX
+P.P.S Links to configure CUP and JFLEX in Windows
 
 https://www.youtube.com/watch?v=WLHn5JzLx6I&ab_channel=D.KAl
 
