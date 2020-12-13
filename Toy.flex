@@ -81,7 +81,6 @@ while				{return new java_cup.runtime.Symbol(syntax.sym.WHILE);}
 "&&"				{return new java_cup.runtime.Symbol(syntax.sym.AND);}
 "||"				{return new java_cup.runtime.Symbol(syntax.sym.OR);}
 "!"					{return new java_cup.runtime.Symbol(syntax.sym.NOT);}
-assignop			{return new java_cup.runtime.Symbol(syntax.sym.ASSIGNOP);}
 ";"					{return new java_cup.runtime.Symbol(syntax.sym.SEMICOLON);}
 ","					{return new java_cup.runtime.Symbol(syntax.sym.COMMA);}
 "."					{return new java_cup.runtime.Symbol(syntax.sym.PERIOD);}
