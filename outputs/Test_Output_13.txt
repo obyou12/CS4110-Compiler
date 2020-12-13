@@ -1,0 +1,27 @@
+File: Test_Case_13.txt
+
+Parsing:
+INT [shift] INT [shift] [reduce 601] 
+ID [shift]
+[reduce 501] [reduce 902] 
+
+ID [shift]
+[reduce 2801] 
+INTCONSTANT [shift]
+[reduce 3301] 
+[reduce 2703] 
+GREATER [shift]
+[reduce 2702] 
+ID [shift]
+[reduce 2801] 
+Syntax error
+instead expected token classes are [MINUS, MULT, DIV, MOD, LESS, LESSEQ, GREATER, GREATEREQ, EQUAL, NOTEQ, AND, OR, COMMA, PERIOD, LEFTPAREN, RIGHTPAREN, LEFTBRACKET]
+Couldn't repair and continue parse
+java.lang.Exception: Can't recover from previous error(s)
+	at java_cup.runtime.lr_parser.report_fatal_error(lr_parser.java:392)
+	at java_cup.runtime.lr_parser.unrecovered_syntax_error(lr_parser.java:539)
+	at java_cup.runtime.lr_parser.parse(lr_parser.java:731)
+	at Main.main(Main.java:24)
+
+Unsuccessful Parse
+-End of Parse
