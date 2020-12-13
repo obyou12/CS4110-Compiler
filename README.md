@@ -30,3 +30,7 @@ https://www.youtube.com/watch?v=WLHn5JzLx6I&ab_channel=D.KAl
 https://mdasifbinkhaled.wordpress.com/2016/03/26/how-to-install-jflex-in-windows-10/
 
 https://www.youtube.com/watch?v=zWoDiDy5c-U
+
+Note about Project 1:
+The files in the Project1 folder are the old java files and input and output files that we used in Project #1. The current java files use the grammar for Project #2, so if you want to see the output for Project #1 simply replace the corresponding java files.
+
