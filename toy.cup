@@ -110,10 +110,10 @@ Variable ::= Type:t ID						{: RESULT = 501; System.out.print(reduction(t)+ "ID 
 ;
 
 // #6
-Type ::= INT								{: RESULT = 601; System.out.print("INT [shift] "); :}
-		| DOUBLE 							{: RESULT = 602; System.out.print("DOUBLE [shift]\n"); :}
-		| BOOLEAN 							{: RESULT = 603; System.out.print("BOOLEAN [shift]\n"); :}
-		| STRING 							{: RESULT = 604; System.out.print("string [shift]\n"); :}
+Type ::= INT								{: RESULT = 601; System.out.print(shift("INT")); :}
+		| DOUBLE 							{: RESULT = 602; System.out.print(shift("DOUBLE")); :}
+		| BOOLEAN 							{: RESULT = 603; System.out.print(shift("BOOLEAN")); :}
+		| STRING 							{: RESULT = 604; System.out.print(shift("STRING")); :}
 		| Type:t LEFTBRACKET RIGHTBRACKET   {: RESULT = 605; System.out.print(reduction(t)+shift("LEFTBRACKET", "RIGHTBRACKET")); :}
 ;
 

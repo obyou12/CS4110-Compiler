@@ -61,7 +61,7 @@ null				{return new java_cup.runtime.Symbol(syntax.sym.NULL);}
 println				{return new java_cup.runtime.Symbol(syntax.sym.PRINTLN);}
 readln				{return new java_cup.runtime.Symbol(syntax.sym.READLN);}
 return				{return new java_cup.runtime.Symbol(syntax.sym.RETURN);}
-String 				{return new java_cup.runtime.Symbol(syntax.sym.STRING);}
+string 				{return new java_cup.runtime.Symbol(syntax.sym.STRING);}
 this				{return new java_cup.runtime.Symbol(syntax.sym.THIS);}
 true				{return new java_cup.runtime.Symbol(syntax.sym.BOOLEANCONSTANT);}
 void				{return new java_cup.runtime.Symbol(syntax.sym.VOID);}
