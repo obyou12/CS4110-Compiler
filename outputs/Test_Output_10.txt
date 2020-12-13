@@ -1,0 +1,49 @@
+File: Test_Case_10.txt
+
+Parsing:
+
+BOOLEAN [shift]
+[reduce 603] 
+ID [shift]
+
+[reduce 501] 
+
+LEFTBRACE [shift]
+RIGHTBRACE [shift]
+ID [shift]
+ID [shift]
+LEFTPAREN [shift]
+[reduce 802] 
+RIGHTPAREN [shift]
+[reduce 1704] 
+[reduce 703] 
+DOUBLE [shift]
+[reduce 602] 
+ID [shift]
+
+[reduce 501] 
+STRING [shift]
+
+LEFTBRACE [shift]
+RIGHTBRACE [shift]
+[reduce 604] 
+ID [shift]
+LEFTPAREN [shift]
+[reduce 802] 
+RIGHTPAREN [shift]
+[reduce 1704] 
+[reduce 701] 
+[reduce 1303] 
+[reduce 1302] [reduce 1102] 
+[reduce 1303] [reduce 1101] 
+[reduce 1302] [reduce 1101] 
+CLASS [shift]
+ID [shift]
+LEFTBRACE [shift]
+[reduce 1101] 
+RIGHTBRACE [shift]
+[reduce 1007] 
+[reduce 303] [reduce 202] 
+
+Successful Parse
+-End of Parse
