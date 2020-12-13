@@ -1,0 +1,3 @@
+void f(){
+	result = 5 * 4;
+}

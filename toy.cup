@@ -155,7 +155,7 @@ IdCommPlus ::= COMMA ID IdCommPlus:i 		{: RESULT = 1201; System.out.print(shift(
 ;
 
 // #13
-Field ::= Variable:v SEMICOLON 							{: RESULT = 1301; System.out.print(reduction(v)); :}
+Field ::= VariableDecl:v SEMICOLON 							{: RESULT = 1301; System.out.print(reduction(v)); :}
 		| FunctionDecl:f								{: RESULT = 1302; System.out.print(reduction(f)); :}
 ;
 
