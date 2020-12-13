@@ -5,7 +5,6 @@ utilizes the lexical analyzer generator JFLEX (version 1.8.2 downloaded from htt
 LALR parser generator Cup (version 11b downloaded from https://github.com/duhai-alshukaili/CUP).
 The project is ran via the Eclipse IDE (Eclipse 2020-09 downloaded from https://www.eclipse.org/downloads/).
 
-
 	Git Repository: https://github.com/obyou12/CS4110-Compiler
 
 Steps to run:
@@ -20,13 +19,14 @@ Steps to run:
 
 
 P.S. If either the toy.cup or Toy.flex files are modified, then they will have to be recompiled using the commands below
-
 New filename.flex (Toy.flex in our project) files can be compiled by using a command line and running the command "jflex filename.flex." This will generate a filename.java file which can then be dragged and overwritten in the project explorer in Eclipse.  It can be also be linked at this step so it doesn't have to be manually dragged after each compiling.
 
 New filename.cup (toy.cup in our project) files can be compiled by running the command "cup filename.cup". This will generate a parser.java and sym.java file which can then be dragged and overwritten in the project explorer in Eclipse. They can be also be linked at this step so it doesn't have to be manually dragged after each compiling.
 
-
 P.P.S Links to configure CUP and JFLEX
+
 https://www.youtube.com/watch?v=WLHn5JzLx6I&ab_channel=D.KAl
+
 https://mdasifbinkhaled.wordpress.com/2016/03/26/how-to-install-jflex-in-windows-10/
+
 https://www.youtube.com/watch?v=zWoDiDy5c-U
