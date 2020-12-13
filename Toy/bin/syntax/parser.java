@@ -960,7 +960,7 @@ class CUP$parser$actions {
           case 10: // Type ::= INT 
             {
               Object RESULT =null;
-		 RESULT = 601; System.out.print("INT [shift] "); 
+		 RESULT = 601; System.out.print(shift("INT")); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -969,7 +969,7 @@ class CUP$parser$actions {
           case 11: // Type ::= DOUBLE 
             {
               Object RESULT =null;
-		 RESULT = 602; System.out.print("DOUBLE [shift]\n"); 
+		 RESULT = 602; System.out.print(shift("DOUBLE")); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -978,7 +978,7 @@ class CUP$parser$actions {
           case 12: // Type ::= BOOLEAN 
             {
               Object RESULT =null;
-		 RESULT = 603; System.out.print("BOOLEAN [shift]\n"); 
+		 RESULT = 603; System.out.print(shift("BOOLEAN")); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -987,7 +987,7 @@ class CUP$parser$actions {
           case 13: // Type ::= STRING 
             {
               Object RESULT =null;
-		 RESULT = 604; System.out.print("string [shift]\n"); 
+		 RESULT = 604; System.out.print(shift("STRING")); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
