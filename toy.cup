@@ -103,6 +103,7 @@ Decl ::= VariableDecl:v 		 			{: RESULT = 301; System.out.print(reduction(v)); :
 
 // #4
 VariableDecl ::= Variable:v SEMICOLON 		{: RESULT = 401; System.out.print(reduction(v) + shift("SEMICOLON")); :}
+
 ;
 
 // #5
@@ -110,10 +111,10 @@ Variable ::= Type:t ID						{: RESULT = 501; System.out.print(reduction(t)+ "ID 
 ;
 
 // #6
-Type ::= INT								{: RESULT = 601; System.out.print(shift("INT")); :}
-		| DOUBLE 							{: RESULT = 602; System.out.print(shift("DOUBLE")); :}
-		| BOOLEAN 							{: RESULT = 603; System.out.print(shift("BOOLEAN")); :}
-		| STRING 							{: RESULT = 604; System.out.print(shift("STRING")); :}
+Type ::= INT								{: RESULT = 601; System.out.print("INT [shift]"); :}
+		| DOUBLE 							{: RESULT = 602; System.out.print("DOUBLE [shift]\n"); :}
+		| BOOLEAN 							{: RESULT = 603; System.out.print("BOOLEAN [shift]\n"); :}
+		| STRING 							{: RESULT = 604; System.out.print("STRING [shift]\n"); :}
 		| Type:t LEFTBRACKET RIGHTBRACKET   {: RESULT = 605; System.out.print(reduction(t)+shift("LEFTBRACKET", "RIGHTBRACKET")); :}
 ;
 
@@ -156,7 +157,8 @@ IdCommPlus ::= COMMA ID IdCommPlus:i 		{: RESULT = 1201; System.out.print(shift(
 
 // #13
 Field ::= VariableDecl:v SEMICOLON 							{: RESULT = 1301; System.out.print(reduction(v)); :}
-		| FunctionDecl:f								{: RESULT = 1302; System.out.print(reduction(f)); :}
+		| Variable:v SEMICOLON								{: RESULT = 1302; System.out.print(reduction(v)); :}
+		| FunctionDecl:f									{: RESULT = 1303; System.out.print(reduction(f)); :}
 ;
 
 // #14
@@ -269,13 +271,13 @@ Lvalue ::= ID													{: RESULT = 2801; System.out.print(shift("ID")); :}
 ;
 
 // #29
-Call ::= ID LEFTPAREN Actuals:a RIGHTPAREN 					{: RESULT = 2901; System.out.print(shift("ID", "LEFTPAREN") + reduction(a) + shift("RIGHTPAREN")); :} 		
-		| ID PERIOD ID LEFTPAREN Actuals:a RIGHTPAREN		{: RESULT = 2902; System.out.print(shift("ID", "PERIOD", "ID", "LEFTPAREN") + reduction(a) + shift("RIGHTPAREN")); :} 
+Call 	::= ID LEFTPAREN Actuals:a RIGHTPAREN 					{: RESULT = 2901; System.out.print(shift("ID", "LEFTPAREN") + reduction(a) + shift("RIGHTPAREN")); :} 		
+		| ID PERIOD ID LEFTPAREN Actuals:a RIGHTPAREN			{: RESULT = 2902; System.out.print(shift("ID", "PERIOD", "ID", "LEFTPAREN") + reduction(a) + shift("RIGHTPAREN")); :} 
 ;
 
 // #30
-Actuals	::= Expr:e1 ExprCommPlus:e2 						{: RESULT = 3001; System.out.print(reduction(e1) + reduction(e2)); :}
-		| 													{: RESULT = 3002; :}
+Actuals		::= Expr:e1 ExprCommPlus:e2 						{: RESULT = 3001; System.out.print(reduction(e1) + reduction(e2)); :}
+			| 													{: RESULT = 3002; :}
 ;
 
 // #31
