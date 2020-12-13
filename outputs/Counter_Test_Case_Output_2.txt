@@ -1,0 +1,47 @@
+File: Counter_Test_Case_2.txt
+
+Parsing:
+
+ID [shift]
+INTCONSTANT [shift]
+[reduce 3201] 
+[reduce 2801] 
+EQUAL [shift]
+[reduce 2702] 
+
+INT [shift]
+[reduce 2701] 
+SEMICOLON [shift]
+[reduce 2004] 
+LEFTBRACE [shift]
+[reduce 1902] 
+RIGHTBRACE [shift]
+VOID [shift]
+ID [shift]
+LEFTPAREN [shift]
+[reduce 802] 
+RIGHTPAREN [shift]
+[reduce 1702] 
+[reduce 702] 
+[reduce 302] [reduce 202] 
+
+Successful Parse
+-End of Parse
+
+
+Trie Table:
+            A    B    C    D    E    F    G    H    I    J    K    L    M    N    O
+switch:    -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1
+
+            P    Q    R    S    T    U    V    W    X    Y    Z    a    b    c    d
+switch:    -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1
+
+            e    f    g    h    i    j    k    l    m    n    o    p    q    r    s
+switch:    -1    0   -1   -1    1   -1   -1   -1   -1   -1   -1   -1   -1   -1   -1
+
+            t    u    v    w    x    y    z
+switch:    -1   -1   -1   -1   -1   -1   -1
+
+Symbol Table:
+           0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+symbol:    @   @   
