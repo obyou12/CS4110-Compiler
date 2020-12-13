@@ -269,8 +269,8 @@ Lvalue ::= ID													{: RESULT = 2801; System.out.print(shift("ID")); :}
 ;
 
 // #29
-Call 	::= ID LEFTPAREN Actuals:a RIGHTPAREN 					{: RESULT = 2901; System.out.print(shift("ID", "LEFTPAREN") + reduction(a) + shift("RIGHTAPREN")); :} 		
-		| ID PERIOD ID LEFTPAREN Actuals:a RIGHTPAREN			{: RESULT = 2902; System.out.print(shift("ID", "PERIOD", "ID", "LEFTPAREN") + reduction(a) + shift("RIGHTAPREN")); :} 
+Call 	::= ID LEFTPAREN Actuals:a RIGHTPAREN 					{: RESULT = 2901; System.out.print(shift("ID", "LEFTPAREN") + reduction(a) + shift("RIGHTPAREN")); :} 		
+		| ID PERIOD ID LEFTPAREN Actuals:a RIGHTPAREN			{: RESULT = 2902; System.out.print(shift("ID", "PERIOD", "ID", "LEFTPAREN") + reduction(a) + shift("RIGHTPAREN")); :} 
 ;
 
 // #30
@@ -284,9 +284,9 @@ ExprCommPlus ::= COMMA Expr:e1 ExprCommPlus:e2					{: RESULT = 3101; System.out.
 ;
 
 // #32         
-Constant ::= INTCONSTANT										{: RESULT = 3301; System.out.print(shift("INTCONSTANT")); :} 
-	    | DOUBLECONSTANT										{: RESULT = 3302; System.out.print(shift("DOUBLECONSTANT")); :} 
-	    | STRINGCONSTANT										{: RESULT = 3303; System.out.print(shift("STRINGCONSTANT")); :} 
-	    | BOOLEANCONSTANT										{: RESULT = 3304; System.out.print(shift("BOOLEANCONSTANT")); :} 
-	    | NULL													{: RESULT = 3305; System.out.print(shift("NULL")); :} 
+Constant ::= INTCONSTANT										{: RESULT = 3201; System.out.print(shift("INTCONSTANT")); :} 
+	    | DOUBLECONSTANT										{: RESULT = 3202; System.out.print(shift("DOUBLECONSTANT")); :} 
+	    | STRINGCONSTANT										{: RESULT = 3203; System.out.print(shift("STRINGCONSTANT")); :} 
+	    | BOOLEANCONSTANT										{: RESULT = 3204; System.out.print(shift("BOOLEANCONSTANT")); :} 
+	    | NULL													{: RESULT = 3205; System.out.print(shift("NULL")); :} 
 ;
