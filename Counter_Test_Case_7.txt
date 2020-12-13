@@ -1,0 +1,12 @@
+int[][][] a;
+int result;
+int b;
+int x;
+int y;
+int z;
+
+void f(){
+		result = x + y + z;
+		b = result;
+		a[y][x][b];
+}
